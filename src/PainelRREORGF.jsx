@@ -40,11 +40,13 @@ const execSerie = [
   { p: "25/B6", ano: 2025, receita: 7262.82, empenhada: 6765.30, liquidada: 6228.73, paga: 6049.95, rcl: 6325.77 },
   { p: "26/B1", ano: 2026, receita: 1457.83, empenhada: 5168.10, liquidada: 1519.34, paga: 604.00, rcl: 6190.13 },
   { p: "26/B2", ano: 2026, receita: 2397.79, empenhada: 4787.43, liquidada: 1768.29, paga: 1589.17, rcl: 6228.29 },
+  { p: "26/B4", ano: 2026, receita: 5264.38, empenhada: 5899.91, liquidada: 4263.15, paga: 4044.06, rcl: 6570.71 },
 ];
 
 const receitasCat = [
   { p: "26/B1", ano: 2026, impostos: 468.64, contribuicoes: 34.33, patrimonial: 208.61, servicos: 0.02, transfCorrentes: 645.34, outrasCorrentes: 9.21, capital: 0.08 },
   { p: "26/B2", ano: 2026, impostos: 766.34, contribuicoes: 71.93, patrimonial: 316.78, servicos: 0.20, transfCorrentes: 1068.07, outrasCorrentes: 16.90, capital: 0.15 },
+  { p: "26/B4", ano: 2026, impostos: 1377.19, contribuicoes: 145.66, patrimonial: 595.64, servicos: 0.30, transfCorrentes: 2727.20, outrasCorrentes: 35.71, capital: 0.29 },
 ];
 
 const receitasSeries = [
@@ -60,6 +62,7 @@ const receitasSeries = [
 const despesasGND = [
   { p: "26/B1", ano: 2026, pessoal: 2349.46, juros: 16.70, odc: 1250.31, investimentos: 64.90, inversoes: 0.0, amortizacao: 10.81 },
   { p: "26/B2", ano: 2026, pessoal: 2402.24, juros: 26.71, odc: 1539.98, investimentos: 261.51, inversoes: 0.0, amortizacao: 84.06 },
+  { p: "26/B4", ano: 2026, pessoal: 2471.99, juros: 31.71, odc: 2157.69, investimentos: 599.38, inversoes: 0.0, amortizacao: 86.86 },
 ];
 
 const gndSeries = [
@@ -71,40 +74,40 @@ const gndSeries = [
   { key: "amortizacao", nome: "Amortização da Dívida (GND 6)", cor: "#DC2626" },
 ];
 
-// Insights do exercício corrente (até o 2º bimestre, 2026 x 2025)
-// IPCA: 4,26% em 2025 e 4,72% em 12 meses até mai/2026 (IBGE)
+// Insights do exercício corrente (até o 4º bimestre, 2026 x 2025)
+// IPCA: 4,26% em 2025 e 4,22% em 12 meses até ago/2026 (IBGE)
 const insightsReceita = [
-  { grau: "Atenção", cor: "#DC2626", titulo: "Outras Transferências Correntes recuam 23,7%",
-    texto: "A rubrica que concentra os royalties e a participação especial do petróleo caiu de R$ 825,92 mi para R$ 630,30 mi na comparação do mesmo corte de 2025, sendo o principal vetor da retração de 3,8% da receita total. Constatação objetiva do Anexo 06; a atribuição às receitas petrolíferas é inferência baseada na composição histórica da rubrica." },
+  { grau: "Neutro", cor: "#2563EB", titulo: "Outras Transferências Correntes se recuperam, mas abaixo da inflação",
+    texto: "A rubrica que concentra royalties e participação especial somou R$ 1.940,53 mi até o 4º bimestre, alta de 2,9% sobre o mesmo corte de 2025 (R$ 1.886,27 mi), revertendo a queda de 23,7% observada no 2º bimestre. O crescimento ainda fica abaixo do IPCA de 4,22% em 12 meses, com perda real de cerca de 1,3 p.p. Constatação objetiva do Anexo 06; a atribuição às receitas petrolíferas é inferência baseada na composição histórica da rubrica." },
   { grau: "Positivo", cor: "#059669", titulo: "IRRF e cota-parte de ICMS crescem bem acima da inflação",
-    texto: "O IRRF avançou 22,4% (R$ 78,05 mi para R$ 95,56 mi) e a cota-parte do ICMS 12,3% (R$ 189,73 mi para R$ 212,99 mi), ambos muito acima do IPCA de 4,72% em 12 meses, com ganho real relevante nessas bases." },
-  { grau: "Atenção", cor: "#D97706", titulo: "IPTU cresce abaixo da inflação",
-    texto: "A arrecadação de IPTU subiu 3,3% (R$ 308,04 mi para R$ 318,33 mi), abaixo do IPCA de 4,72% em 12 meses, o que representa perda real na base própria mais estável do Município. O ISS, por sua vez, cresceu 8,0%, acima da inflação." },
-  { grau: "Neutro", cor: "#2563EB", titulo: "Rendimentos de aplicações financeiras estagnados",
-    texto: "As aplicações financeiras somaram R$ 208,15 mi, alta nominal de apenas 2,9% apesar da Selic elevada, comportamento compatível com consumo de saldos aplicados ao longo de 2025, coerente com o resultado primário negativo daquele exercício." },
+    texto: "O IRRF avançou 22,1% (R$ 158,00 mi para R$ 192,87 mi) e a cota-parte do ICMS 12,4% (R$ 376,79 mi para R$ 423,44 mi), ambos muito acima do IPCA de 4,22% em 12 meses, com ganho real relevante nessas bases." },
+  { grau: "Positivo", cor: "#059669", titulo: "Base tributária própria cresce acima da inflação",
+    texto: "O ISS cresceu 10,1% (R$ 510,19 mi para R$ 561,59 mi), o ITBI 7,6% e o IPTU 4,5% (R$ 452,27 mi para R$ 472,72 mi), todos acima do IPCA de 4,22%. O IPTU, que no 2º bimestre crescia abaixo da inflação, passou a registrar ganho real, ainda que modesto." },
+  { grau: "Atenção", cor: "#D97706", titulo: "Rendimentos de aplicações financeiras estagnados",
+    texto: "As aplicações financeiras somaram R$ 438,35 mi, alta nominal de apenas 0,5% sobre 2025 (R$ 436,11 mi) apesar da Selic elevada, o que representa queda real de cerca de 3,6%. O comportamento é compatível com a redução dos saldos aplicados, coerente com o consumo de poupança observado em 2025." },
 ];
 
 const insightsDespesa = [
-  { grau: "Alto", cor: "#DC2626", titulo: "Outras Despesas Correntes ganham peso relevante",
-    texto: "O custeio empenhado em ODC cresceu 11,8% (R$ 1.377,31 mi para R$ 1.539,98 mi), quase o triplo do IPCA de 4,72% em 12 meses. É o principal vetor de pressão sobre a despesa no exercício corrente." },
+  { grau: "Alto", cor: "#DC2626", titulo: "Outras Despesas Correntes aceleram e crescem quase 4 vezes a inflação",
+    texto: "O custeio empenhado em ODC cresceu 16,3% (R$ 1.854,98 mi para R$ 2.157,69 mi), cerca de 3,9 vezes o IPCA de 4,22% em 12 meses, acelerando frente aos 11,8% observados no 2º bimestre. É o principal vetor de pressão sobre a despesa no exercício corrente." },
   { grau: "Atenção", cor: "#D97706", titulo: "Pessoal cresce acima da inflação",
-    texto: "O empenho em pessoal e encargos avançou 7,0% (R$ 2.246,00 mi para R$ 2.402,24 mi), acima do IPCA, movimento consistente com a elevação da DTP para 37,85% da RCL ajustada observada no RGF." },
-  { grau: "Neutro", cor: "#2563EB", titulo: "Ritmo inicial de investimentos 34% menor",
-    texto: "Os investimentos empenhados somam R$ 261,51 mi contra R$ 396,90 mi no mesmo corte de 2025. O dado reflete o ritmo de empenho e não necessariamente o de execução física; merece acompanhamento nos próximos bimestres." },
-  { grau: "Fora do padrão", cor: "#7C3AED", titulo: "Amortização da dívida salta 361%",
-    texto: "O empenho em amortização passou de R$ 18,21 mi para R$ 84,06 mi, comportamento fora do padrão sazonal dos exercícios anteriores, sugerindo antecipação de amortizações no início do exercício." },
+    texto: "O empenho em pessoal e encargos avançou 7,3% (R$ 2.304,11 mi para R$ 2.471,99 mi), acima do IPCA. No RGF, a DTP recuou de 37,85% para 36,79% da RCL ajustada entre o 1º e o 2º quadrimestre por efeito do crescimento da RCL, mas segue 2,61 p.p. acima do 2º quadrimestre de 2025." },
+  { grau: "Neutro", cor: "#2563EB", titulo: "Investimentos empenhados 23% abaixo de 2025",
+    texto: "Os investimentos empenhados somam R$ 599,38 mi contra R$ 781,96 mi no mesmo corte de 2025. A distância diminuiu frente ao 2º bimestre (−34,1%), mas o ritmo de empenho segue inferior; o dado não reflete necessariamente a execução física." },
+  { grau: "Fora do padrão", cor: "#7C3AED", titulo: "Amortização da dívida 71% acima de 2025",
+    texto: "O empenho em amortização passou de R$ 50,71 mi para R$ 86,86 mi, mantendo o padrão de antecipação observado desde o início do exercício, enquanto juros e encargos recuaram 15,1% (R$ 37,36 mi para R$ 31,71 mi), movimento coerente com a redução do estoque devedor." },
 ];
 
 const resumoExec = {
   2024: { prevAtualizada: 5534.07, receita: 6523.51, dotAtualizada: 6820.25, empenhada: 6060.02, liquidada: 5543.30, paga: 5415.75 },
   2025: { prevAtualizada: 6133.26, receita: 7262.82, dotAtualizada: 7502.19, empenhada: 6765.30, liquidada: 6228.73, paga: 6049.95 },
-  2026: { prevAtualizada: 6787.77, receita: 2397.79, dotAtualizada: 7010.44, empenhada: 4787.43, liquidada: 1768.29, paga: 1589.17 },
+  2026: { prevAtualizada: 6808.21, receita: 5264.38, dotAtualizada: 7942.79, empenhada: 5899.91, liquidada: 4263.15, paga: 4044.06 },
 };
 
 const resultados = {
   2024: { primario: { meta: 74.92, apurado: 138.63 }, nominal: { meta: 408.57, apurado: 646.99 }, periodo: "6º bimestre (fechamento)" },
   2025: { primario: { meta: 68.11, apurado: -184.77 }, nominal: { meta: 191.06, apurado: -278.95 }, periodo: "6º bimestre (fechamento)" },
-  2026: { primario: { meta: -201.62, apurado: 10.00 }, nominal: { meta: -310.17, apurado: 251.98 }, periodo: "2º bimestre" },
+  2026: { primario: { meta: -201.62, apurado: 245.19 }, nominal: { meta: -310.17, apurado: 463.97 }, periodo: "4º bimestre" },
 };
 
 const seriePN = [
@@ -122,6 +125,7 @@ const seriePN = [
   { p: "25/B6", ano: 2025, primario: -184.77, nominal: -278.95, metaP: 68.11, metaN: 191.06 },
   { p: "26/B1", ano: 2026, primario: 255.64, nominal: 946.46, metaP: -201.62, metaN: -310.17 },
   { p: "26/B2", ano: 2026, primario: 10.00, nominal: 251.98, metaP: -201.62, metaN: -310.17 },
+  { p: "26/B4", ano: 2026, primario: 245.19, nominal: 463.97, metaP: -201.62, metaN: -310.17 },
 ];
 
 const rgfSerie = [
@@ -132,9 +136,20 @@ const rgfSerie = [
   { p: "25/2ºQ", ano: 2025, rclAj: 6287.51, dtp: 2149.29, dtpPct: 34.18, dclPct: -58.46 },
   { p: "25/3ºQ", ano: 2025, rclAj: 6314.80, dtp: 2255.74, dtpPct: 35.72, dclPct: -64.74 },
   { p: "26/1ºQ", ano: 2026, rclAj: 6218.76, dtp: 2353.99, dtpPct: 37.85, dclPct: -68.32 },
+  { p: "26/2ºQ", ano: 2026, rclAj: 6559.81, dtp: 2413.70, dtpPct: 36.79, dclPct: -68.01 },
 ];
 
 const limitesPessoal = { alerta: 48.6, prudencial: 51.3, maximo: 54.0 };
+
+// Royalties e participação especial recebidos nos 12 meses encerrados em cada período (R$ milhões).
+// Fonte: controle de arrecadação da SMF. Apuração disponível a partir de dez/2025 (janelas anteriores exigem 2024).
+const royalties12m = {
+  "25/B6": 2236.80, "26/B1": 2075.55, "26/B2": 2052.68, "26/B4": 2295.91,
+  "25/3ºQ": 2236.80, "26/1ºQ": 2052.68, "26/2ºQ": 2295.91,
+};
+const ROY_PROJ_2026 = 2300.0; // estimativa de recebimento no exercício de 2026
+const DCL_ATUAL = -4466.59;   // Dívida Consolidada Líquida · RGF 2º quadrimestre 2026
+const RCL_AJ_ENDIV_ATUAL = 6567.91; // RCL ajustada para limites de endividamento · RGF 2º quadrimestre 2026
 
 // vMin: valor nominal (R$ mi) equivalente ao mínimo constitucional sobre a base do período
 const constitucionais = [
@@ -146,8 +161,9 @@ const constitucionais = [
       { p: "25/B1", ano: 2025, v: 16.79, vAplic: 108.04, vMin: 160.87 }, { p: "25/B2", ano: 2025, v: 19.34, vAplic: 207.42, vMin: 268.12 }, { p: "25/B3", ano: 2025, v: 22.17, vAplic: 328.51, vMin: 370.45 },
       { p: "25/B4", ano: 2025, v: 22.41, vAplic: 430.67, vMin: 480.44 }, { p: "25/B5", ano: 2025, v: 23.98, vAplic: 562.80, vMin: 586.74 }, { p: "25/B6", ano: 2025, v: 28.24, vAplic: 788.74, vMin: 698.24 },
       { p: "26/B1", ano: 2026, v: 19.11, vAplic: 128.38, vMin: 167.94 }, { p: "26/B2", ano: 2026, v: 19.01, vAplic: 221.81, vMin: 291.70 },
+      { p: "26/B4", ano: 2026, v: 22.78, vAplic: 475.73, vMin: 522.09 },
     ],
-    fechamentos: { 2024: 28.46, 2025: 28.24 }, atual: 19.01,
+    fechamentos: { 2024: 28.46, 2025: 28.24 }, atual: 22.78,
   },
   {
     nome: "FUNDEB · Profissionais da Educação", minimo: 70, fund: "Art. 212-A, XI, CF e art. 26 da Lei 14.113/2020",
@@ -159,7 +175,7 @@ const constitucionais = [
       { p: "26/B2", ano: 2026, v: 103.45, vAplic: 85.00, vMin: 57.52 },
     ],
     fechamentos: { 2024: 95.73, 2025: 91.65 }, atual: 103.45,
-    nota: "Os percentuais do 1º bimestre de 2024 (460,2%) e de 2026 (561,1%) decorrem de base de comparação reduzida no início do exercício e foram excluídos da série por distorção estatística.",
+    nota: "Os percentuais do 1º bimestre de 2024 (460,2%) e de 2026 (561,1%) decorrem de base de comparação reduzida no início do exercício e foram excluídos da série por distorção estatística. O Anexo 14 do 4º bimestre de 2026 foi publicado com o indicador zerado; o card mantém a última posição válida (2º bimestre) até a retificação ou a publicação do 5º bimestre.",
   },
   {
     nome: "Saúde (ASPS)", minimo: 15, fund: "Art. 198, §2º, III, CF e art. 7º da LC 141/2012",
@@ -169,8 +185,9 @@ const constitucionais = [
       { p: "25/B1", ano: 2025, v: 9.51, vAplic: 60.55, vMin: 95.50 }, { p: "25/B2", ano: 2025, v: 10.21, vAplic: 109.57, vMin: 160.98 }, { p: "25/B4", ano: 2025, v: 12.97, vAplic: 249.27, vMin: 288.28 },
       { p: "25/B5", ano: 2025, v: 14.96, vAplic: 352.81, vMin: 353.76 }, { p: "25/B6", ano: 2025, v: 16.25, vAplic: 455.74, vMin: 420.69 },
       { p: "26/B1", ano: 2026, v: 17.93, vAplic: 120.45, vMin: 100.76 }, { p: "26/B2", ano: 2026, v: 19.78, vAplic: 230.78, vMin: 175.01 },
+      { p: "26/B4", ano: 2026, v: 19.89, vAplic: 415.28, vMin: 313.18 },
     ],
-    fechamentos: { 2024: 16.75, 2025: 16.25 }, atual: 19.78,
+    fechamentos: { 2024: 16.75, 2025: 16.25 }, atual: 19.89,
     nota: "O percentual de 47,7% do 1º bimestre de 2024 foi excluído da série pela mesma razão de base reduzida de início de exercício.",
   },
 ];
@@ -178,7 +195,7 @@ const constitucionais = [
 const restosAPagar = {
   2024: { inscritos: 679.48, cancelados: 115.57, pagos: 344.56, saldo: 219.34 },
   2025: { inscritos: 837.41, cancelados: 111.69, pagos: 454.12, saldo: 271.61 },
-  2026: { inscritos: 985.87, cancelados: 47.88, pagos: 496.16, saldo: 441.84 },
+  2026: { inscritos: 985.87, cancelados: 105.81, pagos: 528.08, saldo: 351.98 },
   cobertura: { rpNaoLiq: 533.15, dispLiquida: 2853.50 },
 };
 
@@ -198,54 +215,79 @@ const indicadores = [
 ];
 
 const alertas = [
-  { grau: "Alto", cor: "#DC2626", titulo: "Crescimento do custeio em contexto de receita estagnada",
-    texto: "Pessoal e outras despesas correntes empenhados até o 2º bimestre somam R$ 3.942,22 mi em 2026, contra R$ 3.623,31 mi no mesmo corte de 2025, alta de 8,8%, enquanto a receita realizada recuou 3,8% na mesma comparação. A trajetória vem de trás: as outras despesas correntes cresceram 5,6% entre os fechamentos de 2024 e 2025 e a despesa empenhada em pessoal, 12,8%. O descumprimento das metas fiscais de 2025 reforça a necessidade da verificação bimestral de receitas e da limitação de empenho, se cabível, ao longo de 2026.",
+  { grau: "Alto", cor: "#DC2626", titulo: "Custeio cresce o dobro da receita",
+    texto: "Pessoal e outras despesas correntes empenhados até o 4º bimestre somam R$ 4.629,68 mi em 2026, contra R$ 4.159,09 mi no mesmo corte de 2025, alta de 11,3%, enquanto a receita realizada cresceu 5,5% (R$ 4.991,92 mi para R$ 5.264,38 mi). A diferença de ritmo aumentou frente ao 2º bimestre e é puxada pelas ODC (+16,3%). O descumprimento das metas fiscais de 2025 reforça a necessidade da verificação bimestral de receitas e da limitação de empenho, se cabível, ao longo de 2026.",
     fund: "Arts. 9º, 15 a 17 da LC 101/2000 (geração de despesa e DOCC); art. 169 da CF" },
-  { grau: "Médio", cor: "#D97706", titulo: "Despesa com pessoal no maior patamar da série",
-    texto: "A DTP atingiu 37,85% da RCL ajustada no 1º quadrimestre de 2026, maior valor desde o início da série em 2024, após mínimo de 34,18% no 2º quadrimestre de 2025. Permanece 10,75 p.p. abaixo do limite de alerta, mas a velocidade de crescimento supera a da RCL. Inferência analítica sobre tendência.",
+  { grau: "Médio", cor: "#D97706", titulo: "Despesa com pessoal recua, mas segue acima de 2025",
+    texto: "A DTP recuou de 37,85% no 1º quadrimestre para 36,79% da RCL ajustada no 2º quadrimestre de 2026 (R$ 2.413,70 mi), efeito do crescimento da RCL. Ainda assim, é o maior patamar de 2º quadrimestre da série (34,18% em 2025 e 36,41% em 2024) e a projeção de fechamento é de 37,80%. Permanece 11,81 p.p. abaixo do limite de alerta. Inferência analítica sobre tendência.",
     fund: "Arts. 19, 20, III, b, 22, parágrafo único, e 59, §1º, II da LC 101/2000" },
-  { grau: "Médio", cor: "#D97706", titulo: "RCL estagnada em termos nominais",
-    texto: "A RCL de R$ 6.228 mi no 1º quadrimestre de 2026 é 1,5% inferior à apurada no 3º quadrimestre de 2025 (R$ 6.326 mi). Em termos reais a retração é maior. Como a RCL é denominador de todos os limites da LRF, sua estagnação comprime o espaço fiscal mesmo sem crescimento da despesa.",
+  { grau: "Baixo", cor: "#2563EB", titulo: "RCL volta a crescer, porém com ganho real nulo",
+    texto: "A RCL de 12 meses atingiu R$ 6.570,71 mi no 4º bimestre, novo pico da série e alta de 3,9% sobre o fechamento de 2025 (R$ 6.325,77 mi). Frente ao mesmo corte de 2025 (R$ 6.301,29 mi) o crescimento é de 4,3%, praticamente igual ao IPCA de 4,22%, o que indica estabilidade em termos reais. Como a RCL é denominador dos limites da LRF, a recuperação alivia os indicadores, mas não abre espaço fiscal estrutural.",
     fund: "Art. 2º, IV da LC 101/2000 (conceito de RCL como base dos limites)" },
-  { grau: "Médio", cor: "#D97706", titulo: "Inscrição de restos a pagar em trajetória crescente",
-    texto: "A inscrição evoluiu de R$ 679,48 mi (2024) para R$ 837,41 mi (2025) e R$ 985,87 mi (2026), acumulando alta de 45,1% em dois exercícios. A cobertura de caixa é ampla (disponibilidade líquida de R$ 2,85 bi no RGF do 3º quadrimestre de 2025), mas a curva merece monitoramento por fonte de recursos, sobretudo à medida que se aproxima 2028, último ano do mandato.",
+  { grau: "Médio", cor: "#D97706", titulo: "Restos a pagar: estoque maior e cancelamentos em alta",
+    texto: "A inscrição evoluiu de R$ 679,48 mi (2024) para R$ 837,41 mi (2025) e R$ 985,87 mi (2026), alta de 45,1% em dois exercícios. Até o 4º bimestre foram pagos R$ 528,08 mi e cancelados R$ 105,81 mi (10,7% do inscrito), restando saldo de R$ 351,98 mi. A cobertura de caixa é ampla, mas a curva merece monitoramento por fonte de recursos, sobretudo à medida que se aproxima 2028, último ano do mandato.",
     fund: "Art. 55, III, b e art. 42 da LC 101/2000; arts. 36 e 92 da Lei 4.320/1964" },
-  { grau: "Positivo", cor: "#059669", titulo: "Anulação de empenhos contribui para conter a despesa",
-    texto: "A despesa empenhada acumulada recuou de R$ 5.168,10 mi no 1º bimestre para R$ 4.787,43 mi no 2º bimestre de 2026, com anulações líquidas de aproximadamente R$ 380 mi em empenhos globais e estimativos. Trata-se de gestão ativa dos empenhos que ajuda a segurar a despesa em um exercício de receita pressionada, reforçando o controle orçamentário.",
-    fund: "Arts. 58 a 60 da Lei 4.320/1964; MCASP, Parte I (empenho estimativo e global)" },
+  { grau: "Positivo", cor: "#059669", titulo: "Metas fiscais de 2026 atendidas com folga até o 4º bimestre",
+    texto: "O resultado primário acumulado é de R$ +245,19 mi e o nominal de R$ +463,97 mi, frente a metas da LDO de R$ −201,62 mi e R$ −310,17 mi. A gestão ativa de empenhos observada no início do exercício (anulações líquidas de cerca de R$ 380 mi entre o 1º e o 2º bimestre) contribuiu para esse desempenho.",
+    fund: "Art. 4º, §1º e art. 9º da LC 101/2000; arts. 58 a 60 da Lei 4.320/1964" },
 ];
+
+// Substituições das linhas que dependem da RCL quando a base sem royalties está ativa
+const preditivosSemRoy = {
+  "Despesa com Pessoal (DTP)": {
+    atual: "56,61% no 2º quad (sem royalties)", proj: "58,02% no 3º quadrimestre",
+    valor: "Acima do equivalente a 54%: excesso projetado de R$ 172,8 mi sobre o máximo e de R$ 405,1 mi sobre o alerta, na base de R$ 4.301,2 mi",
+    situacao: "Dependente dos royalties", cor: "#DC2626",
+  },
+  "Dívida Consolidada Líquida": {
+    atual: "−104,56% no 2º quad (sem royalties)", proj: "Posição credora mantida no 3º quadrimestre",
+    valor: "Espaço de endividamento até 120% da RCL sem royalties: R$ 9,64 bi",
+    situacao: "Cumprimento folgado", cor: "#059669",
+  },
+  "Receita Corrente Líquida": {
+    atual: "R$ 4.274,79 mi no 4º bim (sem royalties)", proj: "R$ 4.312,2 mi no 6º bimestre",
+    valor: "Crescimento projetado de 5,5% sobre dez/2025 (R$ 4.088,97 mi), acima da inflação de 12 meses (4,22%)",
+    situacao: "Ganho real", cor: "#059669",
+  },
+};
 
 // Insights preditivos: projeções para o fechamento de 2026 com base na sazonalidade 2023 a 2025 (base interna 2022 a 2026)
 const preditivos = [
   {
     meta: "Educação (MDE)", ref: "Mínimo de 25% · art. 212 da CF",
-    atual: "19,01% no 2º bim", proj: "26,74% no 6º bimestre",
-    valor: "Aplicação adicional necessária para o mínimo: R$ 543,06 mi até o fim do exercício",
+    atual: "22,78% no 4º bim", proj: "27,97% no 6º bimestre",
+    valor: "Aplicação adicional necessária para o mínimo: R$ 288,02 mi até o fim do exercício",
     situacao: "Cumprimento projetado", cor: "#059669",
   },
   {
     meta: "Saúde (ASPS)", ref: "Mínimo de 15% · art. 198 CF e LC 141/2012",
-    atual: "19,78% no 2º bim", proj: "25,36% no 6º bimestre",
-    valor: "Aplicação adicional necessária para o mínimo: R$ 228,15 mi até o fim do exercício",
+    atual: "19,89% no 4º bim", proj: "22,61% no 6º bimestre",
+    valor: "Aplicação adicional necessária para o mínimo: R$ 42,97 mi até o fim do exercício",
     situacao: "Cumprimento projetado", cor: "#059669",
   },
   {
     meta: "FUNDEB · Profissionais", ref: "Mínimo de 70% · art. 212-A CF",
     atual: "103,45% no 2º bim", proj: "≈ 105,1% no 6º bimestre",
-    valor: "Aplicação adicional necessária para o mínimo: R$ 76,05 mi até o fim do exercício",
-    situacao: "Cumprimento projetado", cor: "#059669",
+    valor: "Sem atualização: indicador publicado zerado no Anexo 14 do 4º bimestre; mantida a projeção do 2º bimestre",
+    situacao: "Verificar publicação", cor: "#D97706",
   },
   {
     meta: "Despesa com Pessoal (DTP)", ref: "Alerta 48,6% · Prudencial 51,3% · Máximo 54% · LRF",
-    atual: "37,85% no 1º quad", proj: "39,29% no 3º quadrimestre",
-    valor: "Espaço projetado de gasto: R$ 591,6 mi até o alerta e R$ 934,7 mi até o limite máximo",
-    situacao: "Dentro dos limites, em elevação", cor: "#D97706",
+    atual: "36,79% no 2º quad", proj: "37,80% no 3º quadrimestre",
+    valor: "Espaço projetado de gasto: R$ 712,7 mi até o alerta e R$ 1.069,2 mi até o limite máximo",
+    situacao: "Dentro dos limites", cor: "#059669",
   },
   {
     meta: "Dívida Consolidada Líquida", ref: "Limite de 120% da RCL · Res. Senado 40/2001",
-    atual: "−68,32% no 1º quad", proj: "Posição credora mantida no 3º quadrimestre",
-    valor: "Espaço de endividamento até o limite: R$ 11,89 bi",
+    atual: "−68,01% no 2º quad", proj: "Posição credora mantida no 3º quadrimestre",
+    valor: "Espaço de endividamento até o limite: R$ 12,40 bi",
     situacao: "Cumprimento folgado", cor: "#059669",
+  },
+  {
+    meta: "Receita Corrente Líquida", ref: "Base dos limites · art. 2º, IV da LC 101/2000",
+    atual: "R$ 6.570,71 mi no 4º bim", proj: "R$ 6.612,2 mi no 6º bimestre",
+    valor: "Crescimento projetado de 4,5% sobre 2025, próximo à inflação de 12 meses (4,22%)",
+    situacao: "Estável em termos reais", cor: "#2563EB",
   },
 ];
 
@@ -440,6 +482,29 @@ const fimExercicio = (pontos) => pontos.map((x) => (
     label={{ value: `Fecha 20${x.slice(0, 2)}`, fontSize: 9, fill: "#94A3B8", position: "top" }} />
 ));
 
+// Alterna a base de cálculo dos indicadores entre a RCL oficial e a RCL sem royalties (visão gerencial)
+const RoyaltiesToggle = ({ semRoy, setSemRoy }) => (
+  <div className="flex gap-1.5 no-print">
+    <button onClick={() => setSemRoy(false)}
+      className={`px-3 py-1 rounded-lg text-xs font-medium border transition ${!semRoy ? "bg-slate-700 text-white border-slate-700" : "bg-white text-slate-600 border-slate-300 hover:border-slate-500"}`}>
+      RCL com royalties
+    </button>
+    <button onClick={() => setSemRoy(true)}
+      className={`px-3 py-1 rounded-lg text-xs font-medium border transition ${semRoy ? "bg-amber-600 text-white border-amber-600" : "bg-white text-slate-600 border-slate-300 hover:border-amber-500"}`}>
+      RCL sem royalties
+    </button>
+  </div>
+);
+
+const NotaRoyalties = () => (
+  <p className="text-[11px] text-amber-800 bg-amber-50 border border-amber-200 rounded-lg p-2.5 mt-3 leading-snug">
+    Visão gerencial: a LRF inclui royalties e participação especial na RCL (art. 2º, IV da LC 101/2000), de modo que os
+    limites oficiais seguem a base com royalties. A base sem royalties mede a dependência fiscal do petróleo, relevante
+    porque o art. 8º da Lei 7.990/1989 veda a aplicação desses recursos no quadro permanente de pessoal, ressalvadas a
+    capitalização de fundos de previdência e as aplicações da Lei 12.858/2013. Série disponível a partir de dez/2025.
+  </p>
+);
+
 const FiltroPills = ({ series, ativo, setAtivo, rotuloTodos }) => (
   <div className="flex flex-wrap gap-1.5 mb-3 no-print">
     <button onClick={() => setAtivo("todos")}
@@ -482,16 +547,20 @@ const TooltipMinimo = ({ active, payload, label, minimo }) => {
 };
 
 // Tooltip da DTP com o valor nominal atual e o equivalente em reais de cada limite sobre a RCL ajustada do período
-const TooltipDTP = ({ active, payload, label }) => {
+const TooltipDTP = ({ active, payload, label, semRoy }) => {
   if (!active || !payload || !payload.length) return null;
   const p = payload[0].payload;
+  const usarSR = semRoy && p.dtpPctSR != null;
+  const base = usarSR ? p.rclAjSR : p.rclAj;
   return (
     <div className="bg-white border border-slate-200 rounded-lg px-3 py-2 shadow text-xs">
-      <p className="font-semibold text-slate-700">{label}</p>
-      <p className="text-slate-600">DTP: {fmt(p.dtp, 0)}m ({fmtPct(p.dtpPct)})</p>
-      <p style={{ color: "#D97706" }}>Alerta (48,6%): {fmt(p.rclAj * 0.486, 0)}m</p>
-      <p style={{ color: "#EA580C" }}>Prudencial (51,3%): {fmt(p.rclAj * 0.513, 0)}m</p>
-      <p style={{ color: "#DC2626" }}>Máximo (54%): {fmt(p.rclAj * 0.54, 0)}m</p>
+      <p className="font-semibold text-slate-700">{label}{usarSR ? " · base sem royalties" : ""}</p>
+      <p className="text-slate-600">DTP: {fmt(p.dtp, 0)}m ({fmtPct(p.dtpPct)} da RCL oficial)</p>
+      {usarSR && <p className="text-amber-700">Sobre a RCL sem royalties: {fmtPct(p.dtpPctSR)}</p>}
+      <p style={{ color: "#D97706" }}>Alerta (48,6%): {fmt(base * 0.486, 0)}m</p>
+      <p style={{ color: "#EA580C" }}>Prudencial (51,3%): {fmt(base * 0.513, 0)}m</p>
+      <p style={{ color: "#DC2626" }}>Máximo (54%): {fmt(base * 0.54, 0)}m</p>
+      {semRoy && p.dtpPctSR == null && <p className="text-slate-400">Base sem royalties indisponível neste período</p>}
     </div>
   );
 };
@@ -504,7 +573,7 @@ const BarraLimite = ({ atual, marcos }) => {
   const max = 60;
   return (
     <div className="relative h-8 bg-slate-100 rounded-lg overflow-hidden mt-2">
-      <div className="absolute inset-y-0 left-0 rounded-lg" style={{ width: `${(atual / max) * 100}%`, background: "linear-gradient(90deg,#059669,#10B981)" }} />
+      <div className="absolute inset-y-0 left-0 rounded-lg" style={{ width: `${Math.min(atual / max, 1) * 100}%`, background: atual >= 54 ? "linear-gradient(90deg,#B91C1C,#EF4444)" : atual >= 48.6 ? "linear-gradient(90deg,#B45309,#F59E0B)" : "linear-gradient(90deg,#059669,#10B981)" }} />
       {marcos.map((m) => (
         <div key={m.label} className="absolute inset-y-0" style={{ left: `${(m.v / max) * 100}%` }}>
           <div className="w-0.5 h-full" style={{ background: m.cor }} />
@@ -527,6 +596,7 @@ export default function PainelRREORGF() {
   const [expPN, setExpPN] = useState(false);
   const [expDTP, setExpDTP] = useState(true);
   const [expConst, setExpConst] = useState(false);
+  const [semRoy, setSemRoy] = useState(false); // base de cálculo: RCL oficial ou RCL sem royalties
   const [recFiltro, setRecFiltro] = useState("todos");
   const [gndFiltro, setGndFiltro] = useState("todos");
   const [compMuni, setCompMuni] = useState("Rio de Janeiro");
@@ -539,14 +609,20 @@ export default function PainelRREORGF() {
   const grauReceita = (r.receita / r.prevAtualizada) * 100;
   const grauEmpenho = (r.empenhada / r.dotAtualizada) * 100;
   const rgfAtual = rgfSerie[rgfSerie.length - 1];
+  const royAtual = royalties12m[rgfAtual.p];
+  const rclAjSRAtual = rgfAtual.rclAj - royAtual;
+  const dtpPctSRAtual = (rgfAtual.dtp / rclAjSRAtual) * 100;
+  const rclEndivSRAtual = RCL_AJ_ENDIV_ATUAL - royAtual;
+  const dclPctSRAtual = (DCL_ATUAL / rclEndivSRAtual) * 100;
+  const comRoy = (serie) => serie.map((d) => (royalties12m[d.p] != null ? { ...d, rclSR: d.rcl != null ? d.rcl - royalties12m[d.p] : undefined, rclAjSR: d.rclAj != null ? d.rclAj - royalties12m[d.p] : undefined, dtpPctSR: d.dtp != null ? (d.dtp / (d.rclAj - royalties12m[d.p])) * 100 : undefined } : d));
 
   const filtrar = (serie, expandido) => (expandido ? serie : serie.filter((d) => d.ano === exercicio));
   const filtrarCorrente = (serie, expandido) => (expandido ? serie : serie.filter((d) => d.ano === ANO_CORRENTE));
 
-  const dadosExec = filtrar(execSerie, expExec);
+  const dadosExec = comRoy(filtrar(execSerie, expExec));
   const tabelaExec = execSerie.filter((d) => d.ano === exercicio);
   const dadosPN = filtrarCorrente(seriePN, expPN);
-  const dadosDTP = filtrarCorrente(rgfSerie, expDTP);
+  const dadosDTP = comRoy(filtrarCorrente(rgfSerie, expDTP));
 
   const recVisiveis = recFiltro === "todos" ? receitasSeries : receitasSeries.filter((s) => s.key === recFiltro);
   const gndVisiveis = gndFiltro === "todos" ? gndSeries : gndSeries.filter((s) => s.key === gndFiltro);
@@ -599,12 +675,12 @@ export default function PainelRREORGF() {
 
         {/* KPIs do exercício corrente */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
-          <Kpi label="Receita 2026 (até 2º bim)" value={`R$ ${fmt(2397.79)}`} sub="35,3% da previsão atualizada" />
-          <Kpi label="Resultado Primário 2026" value={`R$ ${fmt(10.0)}`} sub="Acima da meta LDO de R$ −201,62 mi" tone="green" />
-          <Kpi label="Resultado Nominal 2026" value={`R$ ${fmt(251.98)}`} sub="Acima da meta LDO de R$ −310,17 mi" tone="green" />
-          <Kpi label="Despesa com Pessoal" value={fmtPct(37.85)} sub="1º quadrimestre 2026 · limite 54%" tone="amber" />
-          <Kpi label="DCL / RCL" value={fmtPct(-68.32)} sub="Posição credora · limite 120%" tone="green" />
-          <Kpi label="RCL Ajustada" value={`R$ ${fmt(6218.76)}`} sub="1º quadrimestre 2026" />
+          <Kpi label="Receita 2026 (até 4º bim)" value={`R$ ${fmt(5264.38)}`} sub="77,3% da previsão atualizada" />
+          <Kpi label="Resultado Primário 2026" value={`R$ ${fmt(245.19)}`} sub="Acima da meta LDO de R$ −201,62 mi" tone="green" />
+          <Kpi label="Resultado Nominal 2026" value={`R$ ${fmt(463.97)}`} sub="Acima da meta LDO de R$ −310,17 mi" tone="green" />
+          <Kpi label="Despesa com Pessoal" value={fmtPct(36.79)} sub="2º quadrimestre 2026 · limite 54%" tone="amber" />
+          <Kpi label="DCL / RCL" value={fmtPct(-68.01)} sub="Posição credora · limite 120%" tone="green" />
+          <Kpi label="RCL Ajustada" value={`R$ ${fmt(6559.81)}`} sub="2º quadrimestre 2026" />
         </div>
 
         {/* 1. Execução orçamentária */}
@@ -644,25 +720,43 @@ export default function PainelRREORGF() {
 
           {abaExec === "rcl" && (
             <>
-              <p className="text-sm font-semibold text-slate-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                Trajetória da Receita Corrente Líquida · acumulado de 12 meses ao fim de cada bimestre
-              </p>
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+                <p className="text-sm font-semibold text-slate-700" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  Trajetória da Receita Corrente Líquida · acumulado de 12 meses ao fim de cada bimestre
+                </p>
+                <RoyaltiesToggle semRoy={semRoy} setSemRoy={setSemRoy} />
+              </div>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={dadosExec}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                   <XAxis dataKey="p" tick={{ fontSize: 11 }} />
-                  <YAxis domain={[5400, 6600]} tick={{ fontSize: 11 }} tickFormatter={(v) => fmt(v, 0)} />
+                  <YAxis domain={semRoy ? [3800, 6800] : [5400, 6600]} tick={{ fontSize: 11 }} tickFormatter={(v) => fmt(v, 0)} />
                   <Tooltip formatter={(v) => `R$ ${fmt(v)} mi`} />
+                  {semRoy && <Legend wrapperStyle={{ fontSize: 11 }} />}
                   {expExec && fimExercicio(["24/B6", "25/B6"])}
                   <Line type="monotone" dataKey="rcl" name="RCL (12 meses)" stroke="#1E3A8A" strokeWidth={2.5} dot={{ r: 4 }} />
+                  {semRoy && <Line type="monotone" dataKey="rclSR" name="RCL sem royalties (12 meses)" stroke="#D97706" strokeWidth={2.5} strokeDasharray="6 3" dot={{ r: 4 }} connectNulls />}
                 </LineChart>
               </ResponsiveContainer>
               <p className="text-xs text-slate-500 mt-2">
                 A RCL saiu de R$ 5.661,70 mi no 1º bimestre de 2024 para o pico de R$ 6.355,71 mi no 5º bimestre de 2025
-                e recuou para R$ 6.228,29 mi no 2º bimestre de 2026, queda nominal de 2,0% frente ao pico. Como a RCL é
-                o denominador de todos os limites da LRF (art. 2º, IV da LC 101/2000), sua estagnação comprime o espaço
-                fiscal mesmo sem crescimento da despesa.
+                e recuou para R$ 6.228,29 mi no 2º bimestre de 2026, mas voltou a crescer e atingiu R$ 6.570,71 mi no
+                4º bimestre, novo pico da série. O avanço de 4,3% sobre o mesmo corte de 2025 praticamente iguala o IPCA
+                de 4,22% em 12 meses, o que indica estabilidade real. Como a RCL é o denominador de todos os limites da
+                LRF (art. 2º, IV da LC 101/2000), sua trajetória condiciona diretamente o espaço fiscal. O 3º bimestre de
+                2026 não integra a série carregada.
               </p>
+              {semRoy && (
+                <>
+                  <p className="text-xs text-slate-600 mt-2">
+                    Sem royalties, a RCL de 12 meses passa de R$ 4.088,97 mi em dez/2025 para R$ 4.274,79 mi em ago/2026,
+                    alta de 4,5% em oito meses, com trajetória mais estável que a RCL total. Os royalties respondem por
+                    34,9% da RCL de agosto. Com a estimativa de R$ 2,3 bi de royalties em 2026, a RCL sem royalties
+                    projetada para dezembro é de R$ 4.312,2 mi.
+                  </p>
+                  <NotaRoyalties />
+                </>
+              )}
             </>
           )}
 
@@ -727,9 +821,9 @@ export default function PainelRREORGF() {
           {abaExec === "analise" && (
             <div className="space-y-8">
               <p className="text-xs text-slate-500 bg-blue-50 border border-blue-100 rounded-lg p-3">
-                Análise restrita ao exercício corrente de 2026, acumulado até o 2º bimestre, com comparações contra o
-                mesmo corte de 2025. Referenciais de inflação: IPCA de 4,26% em 2025 e de 4,72% nos 12 meses encerrados
-                em maio de 2026 (IBGE).
+                Análise restrita ao exercício corrente de 2026, acumulado até o 4º bimestre, com comparações contra o
+                mesmo corte de 2025. Referenciais de inflação: IPCA de 4,26% em 2025 e de 4,22% nos 12 meses encerrados
+                em agosto de 2026 (IBGE).
               </p>
 
               <div>
@@ -862,10 +956,14 @@ export default function PainelRREORGF() {
         {/* 3. Limites LRF */}
         <Section title="3 · Limites da Lei de Responsabilidade Fiscal" subtitle="RGF · Anexo 06 · Demonstrativo Simplificado da Gestão Fiscal">
           <div className="mb-8">
-            <p className="text-sm font-semibold text-slate-700 mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
-              Despesa Total com Pessoal · {rgfAtual.p} · R$ {fmt(rgfAtual.dtp)} mi
-            </p>
-            <BarraLimite atual={rgfAtual.dtpPct} marcos={[
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+              <p className="text-sm font-semibold text-slate-700" style={{ fontFamily: "Poppins, sans-serif" }}>
+                Despesa Total com Pessoal · {rgfAtual.p} · R$ {fmt(rgfAtual.dtp)} mi
+                {semRoy && <span className="text-amber-700"> · sobre a RCL ajustada sem royalties de R$ {fmt(rclAjSRAtual)} mi</span>}
+              </p>
+              <RoyaltiesToggle semRoy={semRoy} setSemRoy={setSemRoy} />
+            </div>
+            <BarraLimite atual={semRoy ? dtpPctSRAtual : rgfAtual.dtpPct} marcos={[
               { label: "Alerta", v: limitesPessoal.alerta, cor: "#D97706" },
               { label: "Prudencial", v: limitesPessoal.prudencial, cor: "#EA580C" },
               { label: "Máximo", v: limitesPessoal.maximo, cor: "#DC2626" },
@@ -873,7 +971,9 @@ export default function PainelRREORGF() {
             <p className="text-xs text-slate-500 mt-6">
               Limites do Poder Executivo municipal: máximo de 54% (art. 20, III, b), prudencial de 51,3%
               (art. 22, parágrafo único) e alerta de 48,6% (art. 59, §1º, II), todos da LC 101/2000.
+              {semRoy && ` Na base sem royalties, a DTP de ${fmtPct(dtpPctSRAtual)} supera em R$ ${fmt(rgfAtual.dtp - rclAjSRAtual * 0.54, 1)} mi o equivalente a 54%, o que evidencia que a folga do limite oficial depende da receita do petróleo.`}
             </p>
+            {semRoy && <NotaRoyalties />}
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -886,21 +986,24 @@ export default function PainelRREORGF() {
                 <LineChart data={dadosDTP}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                   <XAxis dataKey="p" tick={{ fontSize: 10 }} />
-                  <YAxis domain={[30, 56]} tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
-                  <Tooltip content={<TooltipDTP />} />
+                  <YAxis domain={semRoy ? [30, 60] : [30, 56]} tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
+                  <Tooltip content={<TooltipDTP semRoy={semRoy} />} />
                   <ReferenceLine y={48.6} stroke="#D97706" strokeDasharray="4 4" label={{ value: "Alerta 48,6%", fontSize: 10, fill: "#D97706", position: "insideTopRight" }} />
                   <ReferenceLine y={54} stroke="#DC2626" strokeDasharray="4 4" label={{ value: "Máximo 54%", fontSize: 10, fill: "#DC2626", position: "insideTopRight" }} />
                   {expDTP && fimExercicio(["24/3ºQ", "25/3ºQ"])}
                   <Line type="monotone" dataKey="dtpPct" name="DTP/RCL" stroke="#1E3A8A" strokeWidth={2.5} dot={{ r: 4 }} />
+                  {semRoy && <Line type="monotone" dataKey="dtpPctSR" name="DTP/RCL sem royalties" stroke="#D97706" strokeWidth={2.5} strokeDasharray="6 3" dot={{ r: 4 }} connectNulls />}
                 </LineChart>
               </ResponsiveContainer>
               <p className="text-[11px] text-slate-400 mt-1">
-                O RGF de 2026 possui apenas o 1º quadrimestre publicado, razão pela qual este gráfico abre por padrão
+                O RGF de 2026 possui dois quadrimestres publicados, razão pela qual este gráfico abre por padrão
                 na série histórica. O marcador tracejado indica o fechamento de cada exercício (3º quadrimestre).
               </p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-slate-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Demais limites · 1º quadrimestre 2026</p>
+              <p className="text-sm font-semibold text-slate-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                Demais limites · 2º quadrimestre 2026{semRoy && <span className="text-amber-700"> · base sem royalties</span>}
+              </p>
               <table className="w-full text-sm">
                 <thead>
                   <tr className="text-left text-slate-500 border-b border-slate-200">
@@ -912,7 +1015,7 @@ export default function PainelRREORGF() {
                 </thead>
                 <tbody>
                   {[
-                    { n: "Dívida Consolidada Líquida", a: "−68,32%", t: "120%" },
+                    { n: "Dívida Consolidada Líquida", a: semRoy ? `${fmt(dclPctSRAtual)}%`.replace("-", "−") : "−68,01%", t: "120%" },
                     { n: "Garantias Concedidas", a: "0,00%", t: "22%" },
                     { n: "Operações de Crédito", a: "0,00%", t: "16%" },
                     { n: "Operações por ARO", a: "0,00%", t: "7%" },
@@ -1060,6 +1163,7 @@ export default function PainelRREORGF() {
             da LRF encerram 2026 nas posições projetadas abaixo. Os valores indicam o esforço nominal necessário para
             o atingimento de cada meta ou o espaço fiscal disponível até cada limite.
           </p>
+          <div className="flex justify-end mb-3"><RoyaltiesToggle semRoy={semRoy} setSemRoy={setSemRoy} /></div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -1072,7 +1176,7 @@ export default function PainelRREORGF() {
                 </tr>
               </thead>
               <tbody>
-                {preditivos.map((p, i) => (
+                {preditivos.map((p0, i) => { const p = semRoy && preditivosSemRoy[p0.meta] ? { ...p0, ...preditivosSemRoy[p0.meta] } : p0; return (
                   <tr key={p.meta} className={i % 2 ? "bg-slate-50" : ""}>
                     <td className="py-2.5 pr-3">
                       <p className="font-medium text-slate-800">{p.meta}</p>
@@ -1085,16 +1189,21 @@ export default function PainelRREORGF() {
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap" style={{ background: `${p.cor}18`, color: p.cor }}>{p.situacao}</span>
                     </td>
                   </tr>
-                ))}
+                ); })}
               </tbody>
             </table>
           </div>
+          {semRoy && <NotaRoyalties />}
           <p className="text-[11px] text-slate-400 mt-3 leading-snug">
-            Metodologia: incremento médio em pontos percentuais entre o 2º e o 6º bimestre de 2023 a 2025 para educação
-            e saúde; razões médias entre o 1º e o 3º quadrimestre de 2023 a 2025 para a DTP (1,0606) e a RCL ajustada
-            (1,0218); base anual de impostos e transferências projetada pela razão média de 2,622 sobre o acumulado do
-            2º bimestre; FUNDEB pela mediana em razão da atipicidade de 2023. Estimativas de tendência elaboradas pelo
-            DEEF sobre a base interna 2022 a 2026; não constituem meta nem compromisso da Administração.
+            Metodologia (posição do 4º bimestre e 2º quadrimestre de 2026): incremento médio em pontos percentuais entre
+            o 4º e o 6º bimestre dos exercícios de referência para educação (2024 e 2025, pois o 4º bimestre de 2023 foi
+            publicado zerado) e saúde (2023 a 2025); base anual de impostos e transferências projetada pela razão média
+            B4 para B6 de 1,463 (2023 a 2025) sobre a base de R$ 2.088,1 mi; razões médias entre o 2º e o 3º
+            quadrimestre de 2023 a 2025 para a DTP (1,0339) e a RCL ajustada (1,0063); RCL pela razão média B4 para B6
+            de 1,0063. FUNDEB mantido na posição do 2º bimestre. Estimativas de tendência elaboradas pelo DEEF sobre a
+            base interna 2022 a 2026; não constituem meta nem compromisso da Administração. Na base sem royalties, subtrai-se
+            da RCL o recebimento de royalties e participação especial dos 12 meses (R$ 2.295,91 mi em ago/2026 e estimativa
+            de R$ 2,3 bi no exercício de 2026); educação, saúde e FUNDEB não se alteram, pois sua base é a receita de impostos.
           </p>
         </Section>
 

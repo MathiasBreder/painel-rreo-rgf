@@ -131,6 +131,33 @@ dados do exercício encerrado seguindo o memorial descrito nos próprios cards. 
 
 ---
 
+### L. `royalties12m` (botão "RCL sem royalties" nas Seções 1, 3 e 8)
+
+Guarda o total de royalties e participação especial recebidos nos **12 meses encerrados** em cada período,
+em R$ milhões, com a mesma chave usada nas séries (`"26/B6"` para bimestre, `"26/3ºQ"` para quadrimestre).
+Fonte: controle mensal de arrecadação de royalties da SMF.
+
+```js
+"26/B6": 0.0, "26/3ºQ": 0.0,
+```
+
+Cálculo: some os recebimentos mensais dos 12 meses que terminam no último mês do período (exemplo: para
+`26/B4`, de set/2025 a ago/2026). A cada RGF, atualize também `DCL_ATUAL` e `RCL_AJ_ENDIV_ATUAL` (Anexo 06 do
+RGF) e, quando mudar a estimativa anual, `ROY_PROJ_2026` e os textos de `preditivosSemRoy`. A visão sem royalties
+é gerencial: os limites oficiais da LRF continuam calculados com a RCL completa (art. 2º, IV da LC 101/2000).
+
+### K. Registro da carga
+
+Ao final de cada atualização, acrescente uma linha no topo da tabela de `CHANGELOG.md` com data,
+demonstrativo, período e principais efeitos, e atualize a linha "Posição atual dos dados" do README.
+Registre também pendências, por exemplo bimestres não carregados ou indicadores publicados zerados.
+
+Dica de conferência: se um indicador do Anexo 14 vier zerado (já ocorreu com educação no 4º bimestre de
+2023 e com o FUNDEB no 4º bimestre de 2026), não inclua o ponto na série; mantenha a última posição válida
+no card e registre a pendência no CHANGELOG.
+
+---
+
 ## 3. Checklist antes de publicar
 
 - [ ] `npm run dev` abre sem erro e os novos pontos aparecem nos gráficos
@@ -138,4 +165,5 @@ dados do exercício encerrado seguindo o memorial descrito nos próprios cards. 
 - [ ] Tooltips das Seções 3 e 4 exibindo os valores nominais corretos
 - [ ] Botão Gerar PDF produzindo o relatório até a Seção 8
 - [ ] `npm run build` concluído sem erros
+- [ ] CHANGELOG.md e linha de posição do README atualizados
 - [ ] Commit com mensagem descritiva e push na `main`

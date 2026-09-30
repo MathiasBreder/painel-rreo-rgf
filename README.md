@@ -7,6 +7,9 @@ e posição no Índice Firjan de Gestão Fiscal (IFGF), incluindo mapa coroplét
 
 Fontes: SICONFI/STN (RREO e RGF), IFGF/Firjan e malha municipal do IBGE.
 
+**Posição atual dos dados:** RREO até o 4º bimestre de 2026 e RGF até o 2º quadrimestre de 2026.
+O registro de cada carga está em [`CHANGELOG.md`](CHANGELOG.md).
+
 ---
 
 ## 1. Stack
